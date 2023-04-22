@@ -7,7 +7,8 @@ import { UserRoleGuard } from '../../auth/guards/user-role.guard';
 @Controller('product')
 export class ProductController {
   @Get()
-  @UseGuards(UserRoleGuard) // Chain the guards here
+  @UseGuards(RolesGuard) // Chain the guards here
+  @Roles('admin', 'user') // Add the roles here
   async getProducts() {
     return 'This is a list of products';
   }
