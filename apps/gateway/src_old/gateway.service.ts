@@ -10,8 +10,6 @@ export class GatewayService {
   constructor(
     @Inject('GATEWAY_SERVICE')
     private readonly communicationClient: ClientProxy,
-    @Inject('PRODUCT_SERVICE')
-    private readonly analyticsClient: ClientProxy,
   ) {}
 
   createUser(createUserRequest: CreateUserRequest) {
@@ -23,9 +21,5 @@ export class GatewayService {
   }
   getHello(): string {
     return 'Hello World!';
-  }
-
-  getAnalytics() {
-    return this.analyticsClient.send({ cmd: 'get_analytics' }, {});
   }
 }

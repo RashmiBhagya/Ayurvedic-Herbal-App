@@ -15,9 +15,4 @@ export class GatewayController {
   createUser(@Body() createUserRequest: CreateUserRequest) {
     return this.gatewayService.createUser(createUserRequest);
   }
-
-  @Get('analytics')
-  getAnalytics() {
-    return this.gatewayService.getAnalytics();
-  }
 }
