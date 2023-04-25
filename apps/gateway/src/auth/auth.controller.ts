@@ -7,6 +7,8 @@ import { AdminRoleGuard } from './guards/admin-role.guard';
 import { UserRoleGuard } from './guards/user-role.guard';
 import { CustomerRoleGuard } from './guards/customer-role.guard';
 import { CreateUserDto } from './dto/create-user.dto';
+import { RolesGuard } from '../product/guards/role/roles.guard';
+import { Roles } from '../product/roles.decorator';
 
 @Controller('auth')
 export class AuthController {
@@ -29,7 +31,8 @@ export class AuthController {
   }
 
   @Post('/create-user')
-  @UseGuards(AdminRoleGuard)
+  @UseGuards(RolesGuard)
+  @Roles('admin')
   createUser(@Body() createUserDto: CreateUserDto): Promise<User> {
     return this.authService.createUser(createUserDto);
   }

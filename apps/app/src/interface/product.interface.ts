@@ -5,4 +5,5 @@ export interface IProduct extends Document{
     readonly productId: string;
     readonly Discription: string;
     readonly quantity: number;
+    readonly  price: string;
 }

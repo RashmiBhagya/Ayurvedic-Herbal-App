@@ -8,7 +8,7 @@ import { ProductController } from './product/product.controller';
 
 @Module({
   imports: [ 
-    MongooseModule.forRoot('mongodb+srv://flocktogether2023:Flocktogether2023@cluster0.v52uicz.mongodb.net/?retryWrites=true&w=majority',{dbName: 'studentdb'}),
+    MongooseModule.forRoot('mongodb+srv://flocktogether2023:Flocktogether2023@cluster0.v52uicz.mongodb.net/?retryWrites=true&w=majority',{dbName: 'productdb'}),
     MongooseModule.forFeature([{ name: 'Product', schema: ProductSchema }])],
   
   controllers: [AppController, ProductController],

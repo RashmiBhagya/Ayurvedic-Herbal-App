@@ -12,6 +12,8 @@ export class GatewayService {
     private readonly communicationClient: ClientProxy,
     @Inject('PRODUCT_SERVICE')
     private readonly analyticsClient: ClientProxy,
+    @Inject('ORDER_SERVICE')
+    private readonly orderClient: ClientProxy,
   ) {}
 
   createUser(createUserRequest: CreateUserRequest) {
@@ -27,5 +29,8 @@ export class GatewayService {
 
   getAnalytics() {
     return this.analyticsClient.send({ cmd: 'get_analytics' }, {});
+  }
+  getFromOrderService() {
+    return this.orderClient.send({ cmd: 'get_order' }, {});
   }
 }

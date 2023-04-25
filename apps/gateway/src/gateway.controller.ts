@@ -20,4 +20,9 @@ export class GatewayController {
   getAnalytics() {
     return this.gatewayService.getAnalytics();
   }
+
+  @Get('orders')
+  getOrders() {
+    return this.gatewayService.getFromOrderService();
+  }
 }

@@ -16,9 +16,14 @@ import { ProductModule } from './product/product.module';
         transport: Transport.TCP,
         options: { port: 3001 },
       },
+      {
+        name: 'ORDER_SERVICE',
+        transport: Transport.TCP,
+        options: { port: 3002 },
+      },
     ]),
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      envFilePath: './apps/gateway/.env',
       isGlobal: true,
     }),
     MongooseModule.forRoot(process.env.DB_URI),
